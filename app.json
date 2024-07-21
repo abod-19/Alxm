@@ -1,5 +1,5 @@
 {
-    "name": "سورس حمد",
+    "name": "سورس عبود",
     "description": "صلي على النبي وتبسم♥🌿",
     "logo": "https://telegra.ph/file/38df0f4ee6cbd747b0332.png",
     "keywords": [
@@ -23,47 +23,42 @@
         "required": true
       },
       "BOT_TOKEN": {
-        "description": "تـوكن الـبوب😒",
+        "description": "تـوكن الـبوت",
         "value": "",
         "required": true
       },
       "OWNER_ID": {
-        "description": "ايـدي الـمطور😐",
-        "value": "5303133436",
+        "description": "ايـدي الـمطور",
+        "value": "5145609515",
         "required": true
       },        
       "MUSIC_BOT_NAME": {
-        "description": "اسـم الـبوت🙂",
+        "description": "اسـم الـبوت",
         "value": "",
         "required": true
       },
       "STRING_SESSION": {
-        "description": "جـلسة بايـروجـرام😕",
+        "description": "جـلسة بايـروجـرام",
         "value": "",
         "required": true
       },
       "HEROKU_API_KEY": {
-        "description": "اتـركه كـما هو😠",
-        "value": "qwertyuiop",
+        "description": "مفتاح هيروكو API KEY",
+        "value": "",
         "required": false
       },
       "HEROKU_APP_NAME": {
-        "description": "انسخ اول مربع والصقه هنا🤓",
+        "description": "انسخ اول مربع والصقه هنا",
         "value": "",
         "required": false
       },
       "LOG_GROUP_ID": {
-        "description": "ايـدي الگروب😑",
+        "description": "ايـدي الجروب",
         "value": "",
         "required": true
       },
       "SUPPORT_CHANNEL": {
-        "description": "رابـط قـناتـك🙃",
-        "value": "https://t.me/ah07v",
-        "required": true
-      },
-      "SUPPORT_GROUP": {
-        "description": "رابط الكروب🙁",
+        "description": "رابـط قـناتـك",
         "value": "https://t.me/ah07v",
         "required": true
       },
