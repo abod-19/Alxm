@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -20,12 +8,9 @@ from AlexaMusic.core.call import Alexa
 from AlexaMusic.utils.database import is_muted, mute_off
 from AlexaMusic.utils.decorators import AdminRightsCheck
 
-# Commands
-UNMUTE_COMMAND = get_command("UNMUTE_COMMAND")
-
 
 @app.on_message(
- filters.command(UNMUTE_COMMAND,"")
+ filters.command(["unmute", "cunmute", "اتكلم", "/unmute", "/cunmute"],"")
     & ~BANNED_USERS)
 @AdminRightsCheck
 async def unmute_admin(Client, message: Message, _, chat_id):
