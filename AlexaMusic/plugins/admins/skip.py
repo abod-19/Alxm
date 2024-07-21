@@ -14,6 +14,7 @@ from AlexaMusic.utils.stream.autoclear import auto_clean
 from AlexaMusic.utils.thumbnails import gen_thumb
 from AlexaMusic.utils.theme import check_theme.
 from strings.filters import command
+from strings import get_string
 
 
 @app.on_message(filters.command(["next","cskip","skip"]) & filters.group & ~BANNED_USERS)
