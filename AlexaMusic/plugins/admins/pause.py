@@ -9,7 +9,7 @@ from AlexaMusic.utils.database import is_music_playing, music_off
 from AlexaMusic.utils.decorators import AdminRightsCheck
 
 
-@app.on_message(filters.command(["pause", "cpause","ايقاف مؤقت","إيقاف مؤقت","وقف", "توقف"],"") & ~BANNED_USERS)
+@app.on_message(filters.command(["pause", "cpause","ايقاف مؤقت","إيقاف مؤقت","وقف", "توقف"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def pause_admin(cli, message: Message, _, chat_id):
     if not len(message.command) == 1:
