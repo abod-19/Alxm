@@ -7,12 +7,12 @@ from pyrogram import filters
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", "27015406"))
-API_HASH = getenv("API_HASH"," 4346a15e8eed59a4906886b8f40d2d71")
+API_ID = int(getenv("API_ID", "20036317"))
+API_HASH = getenv("API_HASH"," 986cb4ba434870a62fe96da3b5f6d411")
 
 BOT_TOKEN = getenv("BOT_TOKEN")
 
-MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://lucifer:ASShaw96@lucifer.vuows.mongodb.net/lucifer?retryWrites=true&w=majority")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Music:Music@cluster0.yjgit72.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "900"))
 
@@ -30,17 +30,17 @@ BOT_ID = getenv("BOT_ID")
 
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/sbhan2000/GPSM")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/abod-19/Alxm")
 
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ah07v")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/EF_19")
 
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/ah07v")
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/GY_19")
 
-channel = getenv("channel", "")
+channel = getenv("channel", "https://t.me/EF_19")
 
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "False")
 
@@ -58,7 +58,7 @@ YOUTUBE_DOWNLOAD_EDIT_SLEEP = int(getenv("YOUTUBE_EDIT_SLEEP", "3"))
 
 TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "5"))
 
-GITHUB_REPO = getenv("GITHUB_REPO", "https://github.com/sbhan2000/GPSM")
+GITHUB_REPO = getenv("GITHUB_REPO", "https://github.com/abod-19/Alxm")
 
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", None)
 
