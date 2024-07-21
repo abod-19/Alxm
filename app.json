@@ -1,0 +1,85 @@
+{
+    "name": "سورس حمد",
+    "description": "صلي على النبي وتبسم♥🌿",
+    "logo": "https://telegra.ph/file/38df0f4ee6cbd747b0332.png",
+    "keywords": [
+    "python3",
+    "telegram",
+    "bot",
+    "Alexa",
+    "alexamusic",
+    "alexamusicbot",
+    "pyrogram"
+    ],
+    "env": {
+      "API_ID": {
+        "description": "اتركه كما هو.",
+        "value": "20036317",
+        "required": true
+      },
+      "API_HASH": {
+        "description": "اتركه كما هو.",
+        "value": "986cb4ba434870a62fe96da3b5f6d411",
+        "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "تـوكن الـبوب😒",
+        "value": "",
+        "required": true
+      },
+      "OWNER_ID": {
+        "description": "ايـدي الـمطور😐",
+        "value": "5303133436",
+        "required": true
+      },        
+      "MUSIC_BOT_NAME": {
+        "description": "اسـم الـبوت🙂",
+        "value": "",
+        "required": true
+      },
+      "STRING_SESSION": {
+        "description": "جـلسة بايـروجـرام😕",
+        "value": "",
+        "required": true
+      },
+      "HEROKU_API_KEY": {
+        "description": "اتـركه كـما هو😠",
+        "value": "qwertyuiop",
+        "required": false
+      },
+      "HEROKU_APP_NAME": {
+        "description": "انسخ اول مربع والصقه هنا🤓",
+        "value": "",
+        "required": false
+      },
+      "LOG_GROUP_ID": {
+        "description": "ايـدي الگروب😑",
+        "value": "",
+        "required": true
+      },
+      "SUPPORT_CHANNEL": {
+        "description": "رابـط قـناتـك🙃",
+        "value": "https://t.me/ah07v",
+        "required": true
+      },
+      "SUPPORT_GROUP": {
+        "description": "رابط الكروب🙁",
+        "value": "https://t.me/ah07v",
+        "required": true
+      },
+      "chaanel": {
+        "description": "قـناة الاشتراك😶",
+        "value": "ah07v",
+        "required": true
+      }
+    },
+    "buildpacks": [
+          {
+              "url": "heroku/python"
+          },
+          {
+              "url": "https://github.com/heroku/heroku-buildpack-activestorage-preview.git"
+          }
+      ],
+      "stack": "container"
+  }
