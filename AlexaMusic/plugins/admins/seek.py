@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -20,13 +8,9 @@ from AlexaMusic.core.call import Alexa
 from AlexaMusic.misc import db
 from AlexaMusic.utils import AdminRightsCheck, seconds_to_min
 
-# Commands
-SEEK_COMMAND = get_command("SEEK_COMMAND")
 
-
-@app.on_message(
- filters.command(SEEK_COMMAND,"")
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["cseek", "seek", "تقدم", "seekback", "cseekback", "تقديم"],"")
+    & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def seek_comm(cli, message: Message, _, chat_id):
     if len(message.command) == 1:
