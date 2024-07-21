@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
 
@@ -24,15 +12,12 @@ from AlexaMusic.utils.decorators import AdminRightsCheck
 from AlexaMusic.utils.inline.play import stream_markup, telegram_markup
 from AlexaMusic.utils.stream.autoclear import auto_clean
 from AlexaMusic.utils.thumbnails import gen_thumb
-from AlexaMusic.utils.theme import check_theme
-
-# Commands
-SKIP_COMMAND = get_command("SKIP_COMMAND")
+from AlexaMusic.utils.theme import check_theme.
+from strings.filters import command
 
 
-@app.on_message(
- filters.command(SKIP_COMMAND,"")
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["next","cskip","skip"]) & filters.group & ~BANNED_USERS)
+@app.on_message(command(["تخطي","التالي"]) & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
     if not len(message.command) < 2:
