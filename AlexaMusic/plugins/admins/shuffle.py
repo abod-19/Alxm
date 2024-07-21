@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 import random
 
 from pyrogram import filters
@@ -21,13 +9,8 @@ from AlexaMusic import app
 from AlexaMusic.misc import db
 from AlexaMusic.utils.decorators import AdminRightsCheck
 
-# Commands
-SHUFFLE_COMMAND = get_command("SHUFFLE_COMMAND")
 
-
-@app.on_message(
- filters.command(SHUFFLE_COMMAND,"")
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["shuffle", "cshuffle", "خلط"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def admins(Client, message: Message, _, chat_id):
     if not len(message.command) == 1:
