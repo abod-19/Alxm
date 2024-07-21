@@ -1,20 +1,8 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
 from config import BANNED_USERS, adminlist
-from strings import get_command
+
 from AlexaMusic import app
 from AlexaMusic.utils.database import (
     delete_authuser,
@@ -25,16 +13,7 @@ from AlexaMusic.utils.database import (
 from AlexaMusic.utils.decorators import AdminActual, language
 from AlexaMusic.utils.formatters import int_to_alpha
 
-# Command
-AUTH_COMMAND = get_command("AUTH_COMMAND")
-UNAUTH_COMMAND = get_command("UNAUTH_COMMAND")
-AUTHUSERS_COMMAND = get_command("AUTHUSERS_COMMAND")
-
-
-@app.on_message(
- filters.command(AUTH_COMMAND,"")
-    & filters.group
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["رفع ادمن"],"") & filters.group & ~BANNED_USERS)
 @AdminActual
 async def auth(client, message: Message, _):
     if not message.reply_to_message:
@@ -96,10 +75,7 @@ async def auth(client, message: Message, _):
         await message.reply_text(_["auth_3"])
 
 
-@app.on_message(
- filters.command(UNAUTH_COMMAND,"")
-    & filters.group
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["تنزيل ادمن"],"") & filters.group & ~BANNED_USERS)
 @AdminActual
 async def unauthusers(client, message: Message, _):
     if not message.reply_to_message:
@@ -132,10 +108,7 @@ async def unauthusers(client, message: Message, _):
         return await message.reply_text(_["auth_5"])
 
 
-@app.on_message(
- filters.command(AUTHUSERS_COMMAND,"")
-    & filters.group
-    & ~BANNED_USERS)
+@app.on_message(filters.command(["الادمنيه","الادمن"],"") & filters.group & ~BANNED_USERS)
 @language
 async def authusers(client, message: Message, _):
     _playlist = await get_authuser_names(message.chat.id)
@@ -156,7 +129,7 @@ async def authusers(client, message: Message, _):
                 j += 1
             except Exception:
                 continue
-            text += f"{j}➤ {user}[`{user_id}`]\n"
+            text += f"{j} - {user}[`{user_id}`]\n"
             text += f"   {_['auth_8']} {admin_name}[`{admin_id}`]\n\n"
         await mystic.delete()
         await message.reply_text(text)
