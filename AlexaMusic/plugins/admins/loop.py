@@ -7,7 +7,7 @@ from AlexaMusic.utils.database.memorydatabase import get_loop, set_loop
 from AlexaMusic.utils.decorators import AdminRightsCheck
 
 
-@app.on_message(filters.command(["loop", "cloop", "تكرار", "التكرار"],"") & ~BANNED_USERS)
+@app.on_message(filters.command(["loop", "cloop", "تكرار", "التكرار"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def admins(cli, message: Message, _, chat_id):
     usage = _["admin_24"]
