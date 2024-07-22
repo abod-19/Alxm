@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 import asyncio
 import os
 from random import randint
@@ -52,7 +40,7 @@ def get_duration(playing):
         return "Inline"
 
 
-@app.on_message(filters.command(QUEUE_COMMAND) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["cqueue", "اونلاين", "queue", "playing", "cplaying","الاغاني"],"") & filters.group & ~BANNED_USERS)
 @language
 async def ping_com(client, message: Message, _):
     if message.command[0][0] == "c":
