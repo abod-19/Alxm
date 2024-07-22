@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 import asyncio
 import math
 import os
@@ -53,7 +41,7 @@ async def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
-@app.on_message(filters.command(GETLOG_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["get_log", ""]) & SUDOERS)
 @language
 async def log_(client, message, _):
     try:
@@ -83,7 +71,7 @@ async def log_(client, message, _):
         await message.reply_text(_["heroku_2"])
 
 
-@app.on_message(filters.command(GETVAR_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["toknanaa", "ج ف"]) & SUDOERS)
 @language
 async def varget_(client, message, _):
     usage = _["heroku_3"]
@@ -111,7 +99,7 @@ async def varget_(client, message, _):
             return await message.reply_text(f"**{check_var}:** `{str(output)}`")
 
 
-@app.on_message(filters.command(DELVAR_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["del_var", "ح ف"]) & SUDOERS)
 @language
 async def vardel_(client, message, _):
     usage = _["heroku_6"]
@@ -139,7 +127,7 @@ async def vardel_(client, message, _):
             os.system(f"kill -9 {os.getpid()} && bash start")
 
 
-@app.on_message(filters.command(SETVAR_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["set_var", "ا ف"]) & SUDOERS)
 @language
 async def set_var(client, message, _):
     usage = _["heroku_8"]
@@ -168,7 +156,7 @@ async def set_var(client, message, _):
         os.system(f"kill -9 {os.getpid()} && bash start")
 
 
-@app.on_message(filters.command(USAGE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["usage", "ا س"]) & SUDOERS)
 @language
 async def usage_dynos(client, message, _):
     ### Credits CatUserbot
@@ -225,7 +213,7 @@ async def usage_dynos(client, message, _):
     return await dyno.edit(text)
 
 
-@app.on_message(filters.command(UPDATE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["update", "تحديث"]) & SUDOERS)
 @language
 async def update_(client, message, _):
     if await is_heroku():
@@ -312,20 +300,19 @@ async def update_(client, message, _):
         exit()
 
 
-@app.on_message(filters.command(REBOOT_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["restart", "اعاده تشغيل", "إعاده تشغيل" ,"اعادة تشغيل", "إعادة تشغيل"]) & SUDOERS)
 async def restart_(_, message):
     response = await message.reply_text("ʀᴇsᴛᴀʀᴛɪɴɢ...")
     served_chats = await get_active_chats()
-    for x in served_chats:
-        try:
-            await app.send_message(
-                x,
-                f"{config.MUSIC_BOT_NAME} ʜᴀs ᴊᴜsᴛ ʀᴇsᴛᴀʀᴛᴇᴅ ʜᴇʀsᴇʟғ ғᴏʀ ᴜᴩᴅᴀᴛɪɴɢ ᴛʜᴇ ʙᴏᴛ. sᴏʀʀʏ ғᴏʀ ᴛʜᴇ ɪssᴜᴇs.\n\nʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 15-20 sᴇᴄᴏɴᴅs.",
-            )
-            await remove_active_chat(x)
-            await remove_active_video_chat(x)
-        except Exception:
-            pass
+    #for x in served_chats:
+        #try:
+            #await app.send_message(
+                #x,
+                #f"{config.MUSIC_BOT_NAME} ʜᴀs ᴊᴜsᴛ ʀᴇsᴛᴀʀᴛᴇᴅ ʜᴇʀsᴇʟғ ғᴏʀ ᴜᴩᴅᴀᴛɪɴɢ ᴛʜᴇ ʙᴏᴛ. sᴏʀʀʏ ғᴏʀ ᴛʜᴇ ɪssᴜᴇs.\n\nʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ ᴀғᴛᴇʀ 15-20 sᴇᴄᴏɴᴅs.",)
+            #await remove_active_chat(x)
+            #await remove_active_video_chat(x)
+        #except Exception:
+            #pass
     A = "downloads"
     B = "raw_files"
     C = "cache"
@@ -336,6 +323,6 @@ async def restart_(_, message):
     except:
         pass
     await response.edit(
-        "ʀᴇsᴛᴀʀᴛ ᴩʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ, ᴡᴀɪᴛ ғᴏʀ ғᴇᴡ ᴍɪɴᴜᴛᴇs ᴜɴᴛɪʟ ᴛʜᴇ ʙᴏᴛ ʀᴇsᴛᴀʀᴛs."
+        "ᯓ ⌯ 𝚂𝙾𝚄𝚁𝙲𝙴 𝙺𝙸𝙽𝙶 🝢 إعــادة التشغيــل\n•─────────────────•\n\n•⎆┊يتـم الان اعـادة تشغيـل بـوت ميوزك\n•⎆┊قـد يستغـرق الامـر 3-5 دقائـق..."
     )
     os.system(f"kill -9 {os.getpid()} && bash start")
