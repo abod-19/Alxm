@@ -1,14 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
 from pyrogram import filters
 from pyrogram.types import Message
 from pytgcalls.exceptions import NoActiveGroupCall
@@ -22,11 +11,8 @@ from AlexaMusic.utils.decorators.play import PlayWrapper
 from AlexaMusic.utils.logger import play_logs
 from AlexaMusic.utils.stream.stream import stream
 
-# Command
-STREAM_COMMAND = get_command("STREAM_COMMAND")
 
-
-@app.on_message(filters.command(STREAM_COMMAND) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["/stream", "/cstream", "/streamforce", "لايف"],"") & filters.group & ~BANNED_USERS)
 @PlayWrapper
 async def stream_command(
     client,
