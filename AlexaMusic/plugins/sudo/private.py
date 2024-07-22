@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -30,7 +18,7 @@ UNAUTHORIZE_COMMAND = get_command("UNAUTHORIZE_COMMAND")
 AUTHORIZED_COMMAND = get_command("AUTHORIZED_COMMAND")
 
 
-@app.on_message(filters.command(AUTHORIZE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["authorize"]) & SUDOERS)
 @language
 async def authorize(client, message: Message, _):
     if config.PRIVATE_BOT_MODE != str(True):
@@ -48,7 +36,7 @@ async def authorize(client, message: Message, _):
         await message.reply_text(_["pbot_5"])
 
 
-@app.on_message(filters.command(UNAUTHORIZE_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["unauthorize"]) & SUDOERS)
 @language
 async def unauthorize(client, message: Message, _):
     if config.PRIVATE_BOT_MODE != str(True):
@@ -66,7 +54,7 @@ async def unauthorize(client, message: Message, _):
         return await message.reply_text(_["pbot_4"])
 
 
-@app.on_message(filters.command(AUTHORIZED_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["authorized"]) & SUDOERS)
 @language
 async def authorized(client, message: Message, _):
     if config.PRIVATE_BOT_MODE != str(True):
