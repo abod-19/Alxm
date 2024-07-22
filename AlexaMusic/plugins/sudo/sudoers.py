@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -26,7 +14,7 @@ DELSUDO_COMMAND = get_command("DELSUDO_COMMAND")
 SUDOUSERS_COMMAND = get_command("SUDOUSERS_COMMAND")
 
 
-@app.on_message(filters.command(ADDSUDO_COMMAND) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["رفع مطور"],"") & filters.user(OWNER_ID))
 @language
 async def useradd(client, message: Message, _):
     if MONGO_DB_URI is None:
@@ -64,7 +52,7 @@ async def useradd(client, message: Message, _):
     return
 
 
-@app.on_message(filters.command(DELSUDO_COMMAND) & filters.user(OWNER_ID))
+@app.on_message(filters.command(["تنزيل مطور", "/rmsudo"],"") & filters.user(OWNER_ID))
 @language
 async def userdel(client, message: Message, _):
     if MONGO_DB_URI is None:
@@ -98,7 +86,7 @@ async def userdel(client, message: Message, _):
     await message.reply_text(f"sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.")
 
 
-@app.on_message(filters.command(SUDOUSERS_COMMAND) & ~BANNED_USERS)
+@app.on_message(filters.command(["المطورين", "/listsudo", "/sudoers"],"") & ~BANNED_USERS)
 @language
 async def sudoers_list(client, message: Message, _):
     if message.from_user.id not in SUDOERS:
