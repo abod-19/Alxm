@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -27,7 +15,7 @@ WHITELISTCHAT_COMMAND = get_command("WHITELISTCHAT_COMMAND")
 BLACKLISTEDCHAT_COMMAND = get_command("BLACKLISTEDCHAT_COMMAND")
 
 
-@app.on_message(filters.command(BLACKLISTCHAT_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["blacklistchat","مجموعه حظر" , "blchat","مجموعة حظر"]) & SUDOERS)
 @language
 async def blacklist_chat_func(client, message: Message, _):
     if len(message.command) != 2:
@@ -46,7 +34,7 @@ async def blacklist_chat_func(client, message: Message, _):
         pass
 
 
-@app.on_message(filters.command(WHITELISTCHAT_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["unblchat", "unblacklistchat", "سماح"]) & SUDOERS)
 @language
 async def white_funciton(client, message: Message, _):
     if len(message.command) != 2:
@@ -60,7 +48,7 @@ async def white_funciton(client, message: Message, _):
     await message.reply_text("sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.")
 
 
-@app.on_message(filters.command(BLACKLISTEDCHAT_COMMAND) & ~BANNED_USERS)
+@app.on_message(filters.command(["blchats", "blacklistedchats", "المجموعات المحظوره"]) & ~BANNED_USERS)
 @language
 async def all_chats(client, message: Message, _):
     text = _["black_7"]
