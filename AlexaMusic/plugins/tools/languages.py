@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pykeyboard import InlineKeyboard
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, Message
@@ -27,41 +15,41 @@ def lanuages_keyboard(_):
     keyboard = InlineKeyboard(row_width=2)
     keyboard.row(
         InlineKeyboardButton(
-            text="🇮🇶 العربية 🇮🇶",
+            text="العربيه 🇾🇪",
             callback_data=f"languages:en",
         ),
         InlineKeyboardButton(
-            text="🇦🇺 ᴇɴɢʟɪsʜ 🇦🇺",
+            text="🇦🇺 ᴇɴɢʟɪsʜ",
             callback_data=f"languages:ar",
         ),
     )
     keyboard.row(
         InlineKeyboardButton(
-            text="🇮🇳 हिन्दी 🇮🇳",
+            text="🇮🇳 हिन्दी",
             callback_data=f"languages:hi",
         ), 
         InlineKeyboardButton(
-            text="🇱🇰 සිංහල 🇱🇰",
+            text="🇱🇰 සිංහල",
             callback_data=f"languages:si",
         ),
     )
     keyboard.row(
         InlineKeyboardButton(
-            text="🇦🇿 Azərbaycan 🇦🇿",
+            text="🇦🇿 Azərbaycan",
             callback_data=f"languages:az",
         ),
         InlineKeyboardButton(
-            text="🇮🇳 ગુજરાતી 🇮🇳",
+            text="🇮🇳 ગુજરાતી",
             callback_data=f"languages:gu",
         ),
     )
     keyboard.row(
         InlineKeyboardButton(
-            text="🇹🇷 Türkiye Türkçesi 🇹🇷",
+            text="🇹🇷 Türkiye Türkçesi",
             callback_data=f"languages:tr",
         ),
         InlineKeyboardButton(
-            text="🐕 ᴄʜᴇᴇᴍs 🐕",
+            text="🐕 ᴄʜᴇᴇᴍs",
             callback_data=f"languages:cheems",
         ),
     )
@@ -78,7 +66,7 @@ def lanuages_keyboard(_):
 LANGUAGE_COMMAND = get_command("LANGUAGE_COMMAND")
 
 
-@app.on_message(filters.command(LANGUAGE_COMMAND) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["lang", "setlang", "language", "اللغه", "اللغة"]) & filters.group & ~BANNED_USERS)
 @language
 async def langs_command(client, message: Message, _):
     keyboard = lanuages_keyboard(_)
