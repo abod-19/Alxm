@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -26,9 +14,9 @@ ACTIVEVC_COMMAND = get_command("ACTIVEVC_COMMAND")
 ACTIVEVIDEO_COMMAND = get_command("ACTIVEVIDEO_COMMAND")
 
 
-@app.on_message(filters.command(ACTIVEVC_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["activevc", "activevoice", "المكالمات"]) & SUDOERS)
 async def activevc(_, message: Message):
-    mystic = await message.reply_text("ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇᴄʜᴀᴛs ʟɪsᴛ...")
+    mystic = await message.reply_text("⟡ جاري البحث عن مكالمات ...")
     served_chats = await get_active_chats()
     text = ""
     j = 0
@@ -36,7 +24,7 @@ async def activevc(_, message: Message):
         try:
             title = (await app.get_chat(x)).title
         except Exception:
-            title = "ᴩʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
+            title = "دردشه خاصه"
         if (await app.get_chat(x)).username:
             user = (await app.get_chat(x)).username
             text += f"<b>{j + 1}.</b>  [{title}](https://t.me/{user})[`{x}`]\n"
@@ -44,17 +32,17 @@ async def activevc(_, message: Message):
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
         j += 1
     if not text:
-        await mystic.edit_text("ɴᴏ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇᴄʜᴀᴛs ᴍᴜsɪᴄʙᴏᴛ...")
+        await mystic.edit_text("⟡ لاتوجد مكالمات حالياً.")
     else:
         await mystic.edit_text(
-            f"**ʟɪsᴛ ᴏғ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇᴄʜᴀᴛs ᴏɴ ᴍᴜsɪᴄ ʙᴏᴛ :-**\n\n{text}",
+            f"**⟡ المكالمات النشطة حاليا :**\n\n{text}",
             disable_web_page_preview=True,
         )
 
 
-@app.on_message(filters.command(ACTIVEVIDEO_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["activev", "activevideo", "الفيديوهات"]) & SUDOERS)
 async def activevi_(_, message: Message):
-    mystic = await message.reply_text("ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs ʟɪsᴛ...")
+    mystic = await message.reply_text("⟡ جاري البحث عن فيديوهات متوفرة ...")
     served_chats = await get_active_video_chats()
     text = ""
     j = 0
@@ -62,7 +50,7 @@ async def activevi_(_, message: Message):
         try:
             title = (await app.get_chat(x)).title
         except Exception:
-            title = "ᴩʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
+            title = "دردشه خاصه"
         if (await app.get_chat(x)).username:
             user = (await app.get_chat(x)).username
             text += f"<b>{j + 1}.</b>  [{title}](https://t.me/{user})[`{x}`]\n"
@@ -70,9 +58,9 @@ async def activevi_(_, message: Message):
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
         j += 1
     if not text:
-        await mystic.edit_text("ɴᴏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs ᴏɴ ᴍᴜsɪᴄ ʙᴏᴛ...")
+        await mystic.edit_text("⟡ لاتوجد فيديوهات حالياً.")
     else:
         await mystic.edit_text(
-            f"**ʟɪsᴛ ᴏғ ᴄᴜʀʀᴇɴᴛʟʏ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs ᴏɴ ᴍᴜsɪᴄ ʙᴏᴛ :-**\n\n{text}",
+            f"**⟡ الفيديوهات النشطة حاليا :**\n\n{text}",
             disable_web_page_preview=True,
         )
