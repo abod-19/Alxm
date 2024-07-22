@@ -1,14 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
 import os
 from random import randint
 
@@ -34,12 +23,8 @@ from AlexaMusic.utils.stream.stream import stream
 from config import BANNED_USERS, SERVER_PLAYLIST_LIMIT
 from strings import get_command
 
-# Command
-PLAYLIST_COMMAND = get_command("PLAYLIST_COMMAND")
-DELETEPLAYLIST_COMMAND = get_command("DELETEPLAYLIST_COMMAND")
 
-
-@app.on_message(filters.command(PLAYLIST_COMMAND) & ~BANNED_USERS)
+@app.on_message(filters.command(["/playlist", "القائمه"],"") & ~BANNED_USERS)
 @language
 async def check_playlist(client, message: Message, _):
     _playlist = await get_playlist_names(message.from_user.id)
@@ -68,7 +53,7 @@ async def check_playlist(client, message: Message, _):
     await message.reply_photo(carbon, caption=_["playlist_15"].format(link))
 
 
-@app.on_message(filters.command(DELETEPLAYLIST_COMMAND) & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command(["/deleteplaylist", "حذف القائمه"],"") & filters.group & ~BANNED_USERS)
 @language
 async def del_group_message(client, message: Message, _):
     upl = InlineKeyboardMarkup(
