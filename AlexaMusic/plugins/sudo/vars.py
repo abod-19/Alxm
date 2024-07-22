@@ -1,15 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
-
 import asyncio
 
 from pyrogram import filters
@@ -24,7 +12,7 @@ from AlexaMusic.utils.formatters import convert_bytes
 VARS_COMMAND = get_command("VARS_COMMAND")
 
 
-@app.on_message(filters.command(VARS_COMMAND) & SUDOERS)
+@app.on_message(filters.command(["vars", "config"]) & SUDOERS)
 async def varsFunc(client, message):
     mystic = await message.reply_text("ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ... ɢᴇᴛᴛɪɴɢ ʏᴏᴜʀ ᴄᴏɴғɪɢ ᴠᴀʀɪᴀʙʟᴇs...")
     v_limit = await get_video_limit()
