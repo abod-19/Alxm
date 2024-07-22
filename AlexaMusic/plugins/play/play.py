@@ -1,14 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
 import random
 import string
 
@@ -39,13 +28,22 @@ from strings import get_command
 from AlexaMusic.utils.database import is_served_user
 
 
-
-# Command
-PLAY_COMMAND = get_command("PLAY_COMMAND")
-
-
 @app.on_message(
- filters.command(PLAY_COMMAND,"")
+ filters.command(
+        [
+            "play",
+            "تشغيل",
+            "شغل",
+            "play",
+            "vplay",
+            "cplay",
+            "cvplay",
+            "playforce",
+            "vplayforce",
+            "cplayforce",
+            "cvplayforce",
+        ],""
+    )
     & ~BANNED_USERS)
 @PlayWrapper
 async def play_commnd(
