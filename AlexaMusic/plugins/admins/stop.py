@@ -6,8 +6,6 @@ from AlexaMusic import app
 from AlexaMusic.core.call import Alexa
 from AlexaMusic.utils.database import set_loop
 from AlexaMusic.utils.decorators import AdminRightsCheck
-from strings.filters import command
-from strings import get_string
 #import config
 
 #Nem = config.BOT_NAME + " اسكت"
@@ -16,7 +14,7 @@ from strings import get_string
     filters.command(["end", "stop", "cend", "cstop"]) & filters.group & ~BANNED_USERS
 )
 @app.on_message(
-    command(["اسكت","ايقاف"]) & filters.group & ~BANNED_USERS
+    filters.command(["اسكت","ايقاف"],"") & filters.group & ~BANNED_USERS
 )
 @AdminRightsCheck
 async def stop_music(cli, message: Message, _, chat_id):
