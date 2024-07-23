@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
-
+from AlexaMusic.utils import extract_user
 from config import BANNED_USERS, adminlist
 
 from AlexaMusic import app
@@ -47,6 +47,8 @@ async def auth(client, message: Message, _):
         else:
             await message.reply_text(_["auth_3"].format(user.mention))
         return
+
+    user = await extract_user(message)
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
     user_name = message.reply_to_message.from_user.first_name
@@ -95,6 +97,8 @@ async def unauthusers(client, message: Message, _):
             return await message.reply_text(_["auth_4"].format(user.mention))
         else:
             return await message.reply_text(_["auth_5"].format(user.mention))
+
+    user = await extract_user(message)
     user_id = message.reply_to_message.from_user.id
     token = await int_to_alpha(user_id)
     deleted = await delete_authuser(message.chat.id, token)
