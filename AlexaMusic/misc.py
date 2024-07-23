@@ -1,14 +1,3 @@
-# Copyright (C) 2024 by Alexa_Help @ Github, < https://github.com/TheTeamAlexa >
-# Subscribe On YT < Jankari Ki Duniya >. All rights reserved. © Alexa © Yukki.
-
-""""
-TheTeamAlexa is a project of Telegram bots with variety of purposes.
-Copyright (c) 2024 -present Team=Alexa <https://github.com/TheTeamAlexa>
-
-This program is free software: you can redistribute it and can modify
-as you want or you can collabe if you have new ideas.
-"""
-
 import socket
 import time
 
@@ -50,7 +39,7 @@ XCB = [
 def dbb():
     global db
     db = {}
-    LOGGER(__name__).info(f"Database Initialized.")
+    LOGGER(__name__).info(f"\nتم تهيئة قاعدة البيانات.")
 
 
 def sudo():
@@ -76,7 +65,7 @@ def sudo():
         if sudoers:
             for x in sudoers:
                 SUDOERS.add(x)
-    LOGGER(__name__).info(f"Sudo Users Loaded Successfully.")
+    LOGGER(__name__).info(f"\n تم رفع مطور البوت بنجاح.")
 
 
 def heroku():
@@ -86,7 +75,7 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(config.HEROKU_API_KEY)
                 HAPP = Heroku.app(config.HEROKU_APP_NAME)
-                LOGGER(__name__).info(f"Heroku App Configured Successfully.")
+                LOGGER(__name__).info(f"تم رفع بيانات هيروكو.")
             except BaseException:
                 LOGGER(__name__).warning(
                     f"Please make sure your Heroku API Key and Your App name are configured correctly in the heroku."
