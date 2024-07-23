@@ -70,8 +70,8 @@ class Userbot(Client):
             get_me = await self.one.get_me()
             self.one.username = get_me.username
             self.one.id = get_me.id
-            self.one.name = self.one.me.mention
             assistantids.append(get_me.id)
+            self.one.name = get_me.first_name
             if get_me.last_name:
                 self.one.name = get_me.first_name + " " + get_me.last_name
             else:
