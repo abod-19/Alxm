@@ -39,7 +39,7 @@ XCB = [
 def dbb():
     global db
     db = {}
-    LOGGER(__name__).info(f"\nتم تهيئة قاعدة البيانات.")
+    LOGGER(__name__).info(f"\nتم رفع تحديثات السورس.")
 
 
 def sudo():
