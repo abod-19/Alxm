@@ -19,7 +19,7 @@ async def auth(client, message: Message, _):
     if not message.reply_to_message:
         if len(message.command) != 2:
             return await message.reply_text(_["general_1"])
-        user = message.text.split(None, 1)[1]
+        user = message.text.split(None, 2)[2]
         if "@" in user:
             user = user.replace("@", "")
         user = await app.get_users(user)
@@ -81,7 +81,7 @@ async def unauthusers(client, message: Message, _):
     if not message.reply_to_message:
         if len(message.command) != 2:
             return await message.reply_text(_["general_1"])
-        user = message.text.split(None, 1)[1]
+        user = message.text.split(None, 2)[2]
         if "@" in user:
             user = user.replace("@", "")
         user = await app.get_users(user)
