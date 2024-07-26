@@ -13,6 +13,8 @@ from AlexaMusic.utils.decorators import AdminRightsCheck
 @app.on_message(filters.command(["shuffle", "cshuffle", "خلط"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def admins(Client, message: Message, _, chat_id):
+    if not len(message.command) == 1:
+        return
     check = db.get(chat_id)
     if not check:
         return await message.reply_text(_["admin_21"])
