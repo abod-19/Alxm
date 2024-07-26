@@ -50,7 +50,7 @@ async def inline_query_handler(client, query):
 📎**القناة :** [{channel}]({channellink})
 ⏰**بواسطة :** {published}
 
-💖 ** {MUSIC_BOT_NAME} **"""
+💖 ** {app.name} **"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
