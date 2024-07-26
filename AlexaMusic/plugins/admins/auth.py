@@ -126,10 +126,7 @@ async def authusers(client, message: Message, _):
         text = _["auth_7"].format(message.chat.title)
         for note in _playlist:
             _note = await get_authuser(message.chat.id, note)
-            user_id = _note["auth_user_id"]
-            userr = _note["admin_id"]
-            userr = await app.get_users(userr)
-            admin_name = userr.first_name if not userr.mention else userr.mention
+            user_id = _note["auth_user_id"]        
             try:
                 user = await app.get_users(user_id)
                 user = user.first_name if not user.mention else user.mention
