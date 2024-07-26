@@ -11,6 +11,7 @@ from AlexaMusic.utils import help_pannel
 from AlexaMusic.utils.database import get_lang, is_commanddelete_on
 from AlexaMusic.utils.decorators.language import LanguageStart, languageCB
 from AlexaMusic.utils.inline.help import help_back_markup, private_help_panel
+import config
 
 @app.on_message(filters.command(["مساعده", "help", "المساعده"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
