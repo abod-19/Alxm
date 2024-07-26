@@ -12,6 +12,8 @@ from AlexaMusic.utils.decorators import AdminRightsCheck
 @app.on_message(filters.command(["resume", "كمل", "استئناف", "إستئناف", "cresume"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def resume_com(cli, message: Message, _, chat_id):
+    if not len(message.command) == 1:
+        return
     if await is_music_playing(chat_id):
         return await message.reply_text(_["admin_3"], disable_web_page_preview=True)
     await music_on(chat_id)
