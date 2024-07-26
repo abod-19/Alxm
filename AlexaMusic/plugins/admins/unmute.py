@@ -13,6 +13,8 @@ from AlexaMusic.utils.decorators import AdminRightsCheck
  filters.command(["unmute", "cunmute", "اتكلم", "/unmute", "/cunmute"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def unmute_admin(Client, message: Message, _, chat_id):
+    if not len(message.command) == 1:
+        return
     if not await is_muted(chat_id):
         return await message.reply_text(_["admin_7"], disable_web_page_preview=True)
     await mute_off(chat_id)
