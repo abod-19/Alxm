@@ -10,6 +10,8 @@ from AlexaMusic.utils.decorators import AdminRightsCheck
 @app.on_message(filters.command(["mute", "cmute", "اسكت", "/mute", "/cmute"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def mute_admin(cli, message: Message, _, chat_id):
+    if not len(message.command) == 1:
+        return
     if await is_muted(chat_id):
         return await message.reply_text(_["admin_5"], disable_web_page_preview=True)
     await mute_on(chat_id)
