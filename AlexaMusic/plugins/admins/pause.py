@@ -12,6 +12,8 @@ from AlexaMusic.utils.decorators import AdminRightsCheck
 @app.on_message(filters.command(["pause", "cpause","ايقاف مؤقت","إيقاف مؤقت","وقف", "توقف"],"") & filters.group & ~BANNED_USERS)
 @AdminRightsCheck
 async def pause_admin(cli, message: Message, _, chat_id):
+    if not len(message.command) == 1:
+        return
     if not await is_music_playing(chat_id):
         return await message.reply_text(_["admin_1"], disable_web_page_preview=True)
     await music_off(chat_id)
