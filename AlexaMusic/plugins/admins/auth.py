@@ -129,7 +129,7 @@ async def authusers(client, message: Message, _):
             user_id = _note["auth_user_id"]        
             try:
                 user = await app.get_users(user_id)
-                user = user.first_name if not user.mention else user.mention
+                user = user.mention
                 j += 1
             except Exception:
                 continue
