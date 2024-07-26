@@ -127,15 +127,15 @@ async def authusers(client, message: Message, _):
         for note in _playlist:
             _note = await get_authuser(message.chat.id, note)
             user_id = _note["auth_user_id"]
-            admin_id = _note["admin_id"]
-            admin_name = _note["admin_name"]
+            userr = _note["admin_id"]
+            admin_name = userr.first_name if not userr.mention else userr.mention
             try:
                 user = await app.get_users(user_id)
-                user = user.first_name
+                user = user.first_name if not user.mention else user.mention
                 j += 1
             except Exception:
                 continue
-            text += f"\n{j} - {user}[`{user_id}`]\n"
-            text += f"   {_['auth_8']} {admin_name}[`{admin_id}`]\n\n"
+            text += f"{j} - {user}\n"
+            text += f"   {_['auth_8']} {admin_name}\n"
         await mystic.delete()
         await message.reply_text(text)
