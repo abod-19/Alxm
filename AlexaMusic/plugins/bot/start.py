@@ -12,6 +12,7 @@ from AlexaMusic import Telegram, YouTube, app
 from AlexaMusic.misc import SUDOERS
 from AlexaMusic.plugins.play.playlist import del_plist_msg
 from AlexaMusic.plugins.sudo.sudoers import sudoers_list
+from AlexaMusic.plugins.Managed.Deev import devid
 from AlexaMusic.utils.database import (
     add_served_chat,
     is_served_user,
