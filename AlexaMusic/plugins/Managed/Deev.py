@@ -7,7 +7,7 @@ import config
 
 lnk = "https://t.me/EF_19"
 
-@app.on_message(filters.regex(r"^(المطور|مطور|dev)$"))
+@app.on_message(filters.regex(r"^(المطور|مطور|/dev)$"))
 async def devid(client: Client, message: Message):
     first_owner_id = OWNER_ID[0]
     usr = await client.get_users(first_owner_id)
