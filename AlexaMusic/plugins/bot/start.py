@@ -110,7 +110,7 @@ async def start_comm(client, message: Message, _):
             await devid(client=client, message=message)
             if await is_on_off(config.LOG):
                 sender_id = message.from_user.id
-                usrnam = message.form_user.username
+                usrnam = message.from_user.username
                 return await app.send_message(
                     config.LOG_GROUP_ID,
                     f"⟡ تم تشغيل البوت للتحقق من **المطورين\n\n**⟡ 𝐈𝐃 :** {sender_id}\n**⟡ 𝐍𝐀𝐌𝐄 :** {message.from_user.mention}\n**⟡ 𝐔𝐒𝐄𝐑 :** @{usrnam}",
