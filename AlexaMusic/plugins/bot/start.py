@@ -105,8 +105,8 @@ async def start_comm(client, message: Message, _):
             await m.delete()
             await message.reply_photo(photo=thumbnail, caption=msg)
             return
-        if name[0:3] == "sud":
-            await sudoers_list(client=client, message=message, _=_)
+        if name[0:3] == "dev":
+            await devid(client=client, message=message)
             if await is_on_off(config.LOG):
                 sender_id = message.from_user.id
                 sender_name = message.from_user.first_name
