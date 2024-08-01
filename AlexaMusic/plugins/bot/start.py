@@ -110,10 +110,10 @@ async def start_comm(client, message: Message, _):
             await devid(client=client, message=message)
             if await is_on_off(config.LOG):
                 sender_id = message.from_user.id
-                sender_name = message.from_user.first_name
+                usrnam = message.form_user.username
                 return await app.send_message(
                     config.LOG_GROUP_ID,
-                    f"{message.from_user.mention} تم تشغيل البوت للتحقق من <code>المطورين</code>\n\n**ايدي المستخدم:** {sender_id}\n**اسم المستخدم:** {sender_name}",
+                    f"⟡ تم تشغيل البوت للتحقق من **المطورين\n\n**⟡ 𝐈𝐃 :** {sender_id}\n**⟡ 𝐍𝐀𝐌𝐄 :** {message.from_user.mention}\n**⟡ 𝐔𝐒𝐄𝐑 :** @{usrnam}",
                 )
             return
         if name[0:3] == "lyr":
