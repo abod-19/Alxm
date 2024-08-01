@@ -9,7 +9,9 @@ lnk = "https://t.me/EF_19"
 
 @app.on_message(filters.regex(r"^(المطور|مطور|dev)$"))
 async def devid(client: Client, message: Message):
-    usr = await client.get_users(OWNER_ID)
+    first_owner_id = OWNER_ID[0]
+    usr = await client.get_users(first_owner_id)
+    #usr = await client.get_users(OWNER_ID)
     name = usr.first_name
     usrnam = usr.username
     photo_path = os.path.join("downloads", "developer.jpg")
