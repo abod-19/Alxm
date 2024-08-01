@@ -18,11 +18,11 @@ async def devid(client: Client, message: Message):
     await app.download_media(usr.photo.big_file_id, file_name=photo_path)
     await message.reply_photo(
         photo=photo_path,
-        caption=f"""**⌯ 𝙳𝚎𝚟 :** {name}\n\n**⌯ 𝚄𝚂𝙴𝚁 :** @{usrnam}""",
+        caption=f"""**⌯ 𝙳𝚎𝚟 :** [{name}](tg://user?id={first_owner_id})\n\n**⌯ 𝚄𝚂𝙴𝚁 :** @{usrnam}""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(name, url=f"tg://user?id={OWNER_ID}"),
+                    InlineKeyboardButton(name, url=f"tg://user?id={first_owner_id}"),
                 ],
                 [
                     InlineKeyboardButton(
