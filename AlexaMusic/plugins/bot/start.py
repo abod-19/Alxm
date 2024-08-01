@@ -242,7 +242,7 @@ async def welcome(client, message: Message):
                 if chat_id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_7"].format(
-                            f"https://t.me/{app.username}?start=dev"
+                            f"https://t.me/{app.username}?start=sudolist"
                         )
                     )
                     return await app.leave_chat(chat_id)
